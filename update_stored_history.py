@@ -2,6 +2,8 @@ import requests
 from requests.auth import HTTPBasicAuth
 import os
 import json
+import restore_history
+restore_history.restore()
 
 def get_data(key):
     reached_last_page = False
