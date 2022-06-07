@@ -7,10 +7,11 @@ restore_history.restore()
 
 def get_data(key):
     reached_last_page = False
+    page_count = 1
     commit_count = 0
     commit_data = []
     while not reached_last_page:
-        data_ = requests.get('https://api.github.com/repos/{}/commits'.format(key[0]), auth=HTTPBasicAuth(key[1], key[2])).json()
+        data_ = requests.get('https://api.github.com/repos/{}/commits?page={}'.format(key[0], page_count), auth=HTTPBasicAuth(key[1], key[2])).json()
         data = []
         for commit in data_:
             data.append(commit['commit'])
