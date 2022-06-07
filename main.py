@@ -18,7 +18,7 @@ class GetCommitHistory(Resource):
         data = {
             'page_count': commit_history.page_count,
             'commit_count': commit_history.commit_count,
-            'commit_data': commit_history.commit_data
+            'commit_data': commit_history.commit_data_by_page(page)
         }
         return data
 
