@@ -9,16 +9,11 @@ commit_history = commit_history_mgmt.CommitHistory()
 commit_history.update_data()
 class GetCommitHistory(Resource):
     def get(self):
-        parser = reqparse.RequestParser()
-        parser.add_argument('page', type=int)
-        args = parser.parse_args()
-        page = args['page']
         if page is None:
             page = 1
         data = {
-            'page_count': commit_history.page_count,
             'commit_count': commit_history.commit_count,
-            'commit_data': commit_history.commit_data_by_page(page)
+            'commit_data': commit_history.commit_data
         }
         return data
 

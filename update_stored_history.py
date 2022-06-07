@@ -30,7 +30,6 @@ page_count, commit_count, commit_data = get_data(key)
 os.remove('stored_history.json')
 historyf = open('stored_history.json', 'x')
 history_data = {
-    'page_count': page_count,
     'commit_count': commit_count,
     'commit_data': commit_data
 }
